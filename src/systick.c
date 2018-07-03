@@ -18,7 +18,7 @@ void Systick_init(void)
 
 void Start_systick(void)
 {
-	write_reg(SYST_RVR, value);
+	//write_reg(SYST_RVR, value);
 	
 	/*8000 tick = 1ms*/
 	write_reg(SYST_RVR, 0x1F3Fu); 
@@ -41,15 +41,18 @@ unsigned int Get_state_sys(void)
 	
 	return tmprep;
 }
-
+#if 0
 void delay_ms (unsigned int value)
 {
+	unsigned int flag;
 	while (count <= value)
 	{
 		do
 		{
-			count++;
+			flag = Get_state_sys();
 		}
 		while(0 == Get_state_sys());
+		count++;
 	}
 }
+#endif

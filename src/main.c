@@ -2,7 +2,7 @@
 
 
 /*************************************************************************************************/
-
+unsigned int count;
 void delay(unsigned int timeout)
 {
     unsigned int t1, t2;
@@ -15,6 +15,19 @@ void delay(unsigned int timeout)
     }
 }
 
+void delay_ms (unsigned int value)
+{
+	unsigned int flag;
+	while (count <= value)
+	{
+		do
+		{
+			flag = Get_state_sys();
+		}
+		while(0 == Get_state_sys());
+		count++;
+	}
+}
 
 void main(void)
 {

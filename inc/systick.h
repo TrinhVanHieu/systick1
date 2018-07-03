@@ -6,5 +6,5 @@
 void Systick_init(void);
 void Start_systick(void);
 unsigned int Get_state_sys(void);
-void delay_ms (void);
+//void delay_ms (void);
 #endif
